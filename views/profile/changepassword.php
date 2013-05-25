@@ -7,7 +7,7 @@ $this->menu=array(
 	((UserModule::isAdmin())
 		?array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin'))
 		:array()),
-    array('label'=>UserModule::t('List User'), 'url'=>array('/user')),
+    array('label'=>UserModule::t('List Users'), 'url'=>array('/user')),
     array('label'=>UserModule::t('Profile'), 'url'=>array('/user/profile')),
     array('label'=>UserModule::t('Edit'), 'url'=>array('edit')),
     array('label'=>UserModule::t('Logout'), 'url'=>array('/user/logout')),
@@ -27,14 +27,14 @@ $this->menu=array(
 
 	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
 	<?php echo $form->errorSummary($model); ?>
-	
-	<div class="row">
+
+	<div class="control-group">
 	<?php echo $form->labelEx($model,'oldPassword'); ?>
 	<?php echo $form->passwordField($model,'oldPassword'); ?>
 	<?php echo $form->error($model,'oldPassword'); ?>
 	</div>
-	
-	<div class="row">
+
+	<div class="control-group">
 	<?php echo $form->labelEx($model,'password'); ?>
 	<?php echo $form->passwordField($model,'password'); ?>
 	<?php echo $form->error($model,'password'); ?>
@@ -42,15 +42,15 @@ $this->menu=array(
 	<?php echo UserModule::t("Minimal password length 4 symbols."); ?>
 	</p>
 	</div>
-	
-	<div class="row">
+
+	<div class="control-group">
 	<?php echo $form->labelEx($model,'verifyPassword'); ?>
 	<?php echo $form->passwordField($model,'verifyPassword'); ?>
 	<?php echo $form->error($model,'verifyPassword'); ?>
 	</div>
-	
-	
-	<div class="row submit">
+
+
+	<div class="control-group submit">
 	<?php echo CHtml::submitButton(UserModule::t("Save")); ?>
 	</div>
 
