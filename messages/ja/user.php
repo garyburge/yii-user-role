@@ -71,7 +71,7 @@ return array(
 	'Please fill out the following form with your login credentials:' => 'あなたのログイン認証情報を入力してください。',
 	'Fields with <span class="required">*</span> are required.' => '<span class="required">*</span> は必須入力項目です。',
 	'List Users' => 'ユーザー一覧',
-	'Edit' => '編集',
+	'Edit Profile' => '編集',
 	'Edit Profile' => 'プロフィールを編集',
 	'Create User' => 'ユーザーを作成',
 	'Create' => '作成',

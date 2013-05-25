@@ -74,7 +74,7 @@ return array(
 	'Fields with <span class="required">*</span> are required.' => 'Πεδία με  <span class="required">*</span>  απαιτούνται.',
 	'List Users' => 'Λίστα χρηστών',
         'List Users' => 'Λίστα χρηστών',
-	'Edit' => 'Αλλαγή',
+	'Edit Profile' => 'Αλλαγή',
 	'Edit Profile' => 'Αλλαγές στο προφίλ',
         'Edit Profile' => 'Αλλαγές στο προφίλ',
 	'Create User' => 'Δημιουργία χρήστη',

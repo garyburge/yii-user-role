@@ -73,7 +73,7 @@ return array(
 	'Please fill out the following form with your login credentials:' => 'Пожалуйста, заполните следующую форму с вашими Логин и паролем:',
 	'Fields with <span class="required">*</span> are required.' => '<span class="required">*</span> Обязательные поля.',
 	'List Users' => 'Список пользователей',
-	'Edit' => 'Редактировать',
+	'Edit Profile' => 'Редактировать',
 	'Edit Profile' => 'Редактирование профиля',
 	'Create User' => 'Новый',
 	'Create' => 'Добавить',

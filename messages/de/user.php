@@ -71,7 +71,7 @@ return array(
 	'Please fill out the following form with your login credentials:' => 'Bitte Ihren Login-Daten eingeben:',
 	'Fields with <span class="required">*</span> are required.' => 'Felder mit <span class="required"> * </ span> sind erforderlich.',
 	'List Users' => 'Benutzer auflisten',
-	'Edit' => 'Bearbeiten',
+	'Edit Profile' => 'Bearbeiten',
 	'Edit Profile' => 'Meine Daten bearbeiten',
 	'Create User' => 'Benutzer anlegen',
 	'Create' => 'Schaffen',

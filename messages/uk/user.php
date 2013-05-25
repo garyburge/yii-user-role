@@ -74,7 +74,7 @@ return array(
 	'Please fill out the following form with your login credentials:' => 'Будь ласка, заповніть наступну форму з вашим Логіном та паролем:',
 	'Fields with <span class="required">*</span> are required.' => '<span class="required">*</span> Обов\'язкові поля',
 	'List Users' => 'Список користувачів',
-	'Edit' => 'Редагувати',
+	'Edit Profile' => 'Редагувати',
 	'Edit Profile' => 'Редагування профілю',
 	'Create User' => 'Новий',
 	'Create' => 'Новий',

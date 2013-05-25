@@ -71,7 +71,7 @@ return array(
 	'Please fill out the following form with your login credentials:' => 'Kérem adja meg bejelentkezési adatait:',
 	'Fields with <span class="required">*</span> are required.' => '<span class="required">*</span>-al jelölt mezők kitöltése kötelező.',
 	'List Users' => 'Felhasználók listája',
-	'Edit' => 'Szerkesztés',
+	'Edit Profile' => 'Szerkesztés',
 	'Edit Profile' => 'Profil szerkesztése',
 	'Create User' => 'Új felhasználó',
 	'Create' => 'Létrehoz',

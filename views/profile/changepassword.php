@@ -9,7 +9,7 @@ $this->menu=array(
 		:array()),
     array('label'=>UserModule::t('List Users'), 'url'=>array('/user')),
     array('label'=>UserModule::t('Profile'), 'url'=>array('/user/profile')),
-    array('label'=>UserModule::t('Edit'), 'url'=>array('edit')),
+    array('label'=>UserModule::t('Edit Profile'), 'url'=>array('edit')),
     array('label'=>UserModule::t('Logout'), 'url'=>array('/user/logout')),
 );
 ?>

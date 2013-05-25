@@ -76,7 +76,7 @@ return array(
         'Please fill out the following form with your login credentials:' => "Wypełnij formularz następującymi danymi:",
         'Fields with <span class="required">*</span> are required.' => 'Pola z <span class="required"> * </span> są obowiązkowe.',
         'List Users' => 'Pokaż użytkowników',
-        'Edit' => 'Edytuj',
+        'Edit Profile' => 'Edytuj',
         'Edit Profile' => 'Edytuj profil',
         'Create User' => 'Dodaj użytkownika',
         'Create' => 'Dodaj',

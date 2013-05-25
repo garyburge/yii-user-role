@@ -71,7 +71,7 @@ return array(
 	'Please fill out the following form with your login credentials:' => 'Vul het volgende formulier in met uw login-gegevens:',
 	'Fields with <span class="required">*</span> are required.' => 'Velden met <span class="required">*</span> zijn verplicht.',
 	'List Users' => 'Gebruikerslijst',
-	'Edit' => 'Bewerken',
+	'Edit Profile' => 'Bewerken',
 	'Edit Profile' => 'Bewerk profiel',
 	'Create User' => 'Gebruiker aanmaken',
 	'Create' => 'Aanmaken',

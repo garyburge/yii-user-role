@@ -73,7 +73,7 @@ return array(
     'Please fill out the following form with your login credentials:' => "Por favor llene el siguiente formulario con sus datos de inicio de sesión:",
     'Fields with <span class="required">*</span> are required.' => 'Los campos con <span class="required"> * </span> son obligatorios.',
     'List Users' => 'Listar Usuarios',
-	'Edit' => 'Editar',
+	'Edit Profile' => 'Editar',
 	'Edit Profile' => 'Editar perfil',
     'Create User' => 'Crear Nuevo Usuario',
     'Create' => 'Crear nuevo',

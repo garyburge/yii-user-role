@@ -71,7 +71,7 @@ return array(
 	'Please fill out the following form with your login credentials:' => 'Completati campurile cu informatiile dumneavoastra:',
 	'Fields with <span class="required">*</span> are required.' => 'Campurile cu <span class="required"> * </span> sunt obligatorii.',
 	'List Users' => 'Lista utilizatori',
-	'Edit' => 'Editare',
+	'Edit Profile' => 'Editare',
 	'Edit Profile' => 'Editare profil',
 	'Create User' => 'Creare utilizator',
 	'Create' => 'Creare',
