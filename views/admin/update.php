@@ -3,13 +3,6 @@
     (UserModule::t('Users')) => array('admin'),
     (UserModule::t('Update')),
   );
-  $this->menu = array(
-    array('label' => UserModule::t('Create User'), 'url' => array('create')),
-    array('label' => UserModule::t('View User'), 'url' => array('view', 'id' => $model->id)),
-    array('label' => UserModule::t('Manage Users'), 'url' => array('admin')),
-    array('label' => UserModule::t('Manage Profile Fields'), 'url' => array('profileField/admin')),
-    array('label' => UserModule::t('List Users'), 'url' => array('/user')),
-  );
 ?>
 
 <h1><?php echo UserModule::t('Update User') . " " . $model->id; ?></h1>

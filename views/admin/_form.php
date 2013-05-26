@@ -59,10 +59,3 @@
 	</div>
 
 <?php $this->endWidget(); ?>
-
-<?php
-  $this->widget('bootstrap.widgets.TbButtonGroup', array(
-    'buttons'=>$this->menu,
-  ));
-?>
-
