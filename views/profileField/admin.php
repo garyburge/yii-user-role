@@ -4,11 +4,6 @@
     UserModule::t('Manage'),
   );
 
-  $this->menu = array(
-    array('label'=>UserModule::t('Create Profile Field'), 'url'=>array('create')),
-    array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin')),
-  );
-
   Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
     $('.search-form').toggle();
@@ -91,16 +86,8 @@ $('.search-form form').submit(function(){
   ));
 ?>
 
-<?php
-  $this->widget('bootstrap.widgets.TbButtonGroup', array(
-    'buttons'=>array(
-      array('label'=>UserModule::t('Advanced Search'), 'url'=>'#', 'buttonType'=>'link', 'type'=>'info', 'htmlOptions'=>array('class'=>'search-button')),
-    ),
-  ));
-  $this->widget('bootstrap.widgets.TbButtonGroup', array(
-    'buttons'=>$this->menu,
-  ));
-?>
+<?php $this->widget('bootstrap.widgets.TbButton', array('label'=>UserModule::t('Advanced Search'), 'url'=>'#', 'buttonType'=>'link', 'size'=>'small', 'htmlOptions'=>array('class'=>'search-button'))); ?>
+<?php $this->widget('bootstrap.widgets.TbButton', array('label'=>UserModule::t('Create Profile Field'), 'url'=>array('create'), 'type'=>'primary', 'size'=>'small')); ?>
 
 <div class="search-form" style="display:none">
   <?php
