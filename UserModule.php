@@ -38,7 +38,7 @@
      * @var boolean
      * @desc allow auth for is not active user
      */
-    public $loginNotActiv = false;
+    public $loginNotActive = false;
 
     /**
      * @var boolean
