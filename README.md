@@ -134,7 +134,7 @@ Change your config console (required to execute migrations):
 Install
 -------
 
-Run command (from applicatio/protected):
+Run command (from application/protected):
     yiic migrate --migrationPath=user.migrations
 
 Input admin login, email and password

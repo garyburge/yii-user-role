@@ -15,7 +15,7 @@
      * @var string $username
      * @var string $password
      * @var string $email
-     * @var string $activkey
+     * @var string $activeKey
      * @var integer $createtime
      * @var integer $lastvisit
      * @var integer $superuser
@@ -58,7 +58,7 @@
           array('lastvisit_at', 'default', 'value' => '0000-00-00 00:00:00', 'setOnEmpty' => true, 'on' => 'insert'),
           array('username, email, superuser, status', 'required', 'except'=>'search'),
           array('superuser, status', 'numerical', 'integerOnly' => true),
-          array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status', 'safe', 'on' => 'search'),
+          array('id, username, password, email, activeKey, create_at, lastvisit_at, superuser, status', 'safe', 'on' => 'search'),
           ) : ((Yii::app()->user->id == $this->id) ? array(
             array('username, email', 'required', 'except'=>'search'),
             array('username', 'length', 'max' => 20, 'min' => 3, 'message' => UserModule::t("Incorrect username (length between 3 and 20 characters).")),
@@ -90,7 +90,7 @@
         'verifyPassword' => UserModule::t('Retype Password'),
         'email' => UserModule::t('Email'),
         'verifyCode' => UserModule::t('Verification Code'),
-        'activkey' => UserModule::t('Activation Key'),
+        'activeKey' => UserModule::t('Activation Key'),
         'create_at' => UserModule::t('Created'),
         'lastvisit_at' => UserModule::t('Last Visit'),
         'superuser' => UserModule::t('Superuser'),
@@ -113,7 +113,7 @@
           'condition' => 'superuser=1',
         ),
         'notsafe' => array(
-          'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status',
+          'select' => 'id, username, password, email, create_at, lastvisit_at, superuser, status, activeKey',
         ),
       );
     }
@@ -157,7 +157,7 @@
       $criteria->compare('username', $this->username, true);
       $criteria->compare('password', $this->password);
       $criteria->compare('email', $this->email, true);
-      $criteria->compare('activkey', $this->activkey);
+      $criteria->compare('activeKey', $this->activeKey);
       $criteria->compare('create_at', $this->create_at);
       $criteria->compare('lastvisit_at', $this->lastvisit_at);
       $criteria->compare('superuser', $this->superuser);

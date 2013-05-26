@@ -22,14 +22,17 @@ class m110810_162301_userTimestampFix extends CDbMigration
       case "mysql":
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'create_at', "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP");
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'lastvisit_at', "TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00'");
+        $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'activeKey', "VARCHAR(128) NOT NULL");
         $this->execute("UPDATE " . Yii::app()->getModule('user')->tableUsers . " SET create_at = FROM_UNIXTIME(createtime), lastvisit_at = IF(lastvisit,FROM_UNIXTIME(lastvisit),'0000-00-00 00:00:00')");
         $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'createtime');
         $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'lastvisit');
+        $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'activKey');
         break;
       case "sqlite":
       default:
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'create_at', "TIMESTAMP");
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'lastvisit_at', "TIMESTAMP");
+        $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'activeKey', "VARCHAR(128) NOT NULL");
         $this->execute("UPDATE " . Yii::app()->getModule('user')->tableUsers . " SET create_at = datetime(createtime, 'unixepoch'), lastvisit_at = datetime(lastvisit, 'unixepoch')");
         $this->execute('ALTER TABLE "' . Yii::app()->getModule('user')->tableUsers . '" RENAME TO "' . __CLASS__ . '_' . Yii::app()->getModule('user')->tableUsers . '"');
         $this->createTable(Yii::app()->getModule('user')->tableUsers, array(
@@ -37,7 +40,7 @@ class m110810_162301_userTimestampFix extends CDbMigration
           "username"=>"varchar(20) NOT NULL",
           "password"=>"varchar(128) NOT NULL",
           "email"=>"varchar(128) NOT NULL",
-          "activkey"=>"varchar(128) NOT NULL",
+          "activekey"=>"varchar(128) NOT NULL",
           "superuser"=>"int(1) NOT NULL",
           "status"=>"int(1) NOT NULL",
           "create_at"=>"TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",
@@ -56,14 +59,17 @@ class m110810_162301_userTimestampFix extends CDbMigration
       case "mysql":
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'createtime', "int(10) NOT NULL");
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'lastvisit', "int(10) NOT NULL");
+        $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'activKey', "VARCHAR(128) NOT NULL");
         $this->execute("UPDATE " . Yii::app()->getModule('user')->tableUsers . " SET createtime = UNIX_TIMESTAMP(create_at), lastvisit = UNIX_TIMESTAMP(lastvisit_at)");
         $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'create_at');
         $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'lastvisit_at');
+        $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'activKey');
         break;
       case "sqlite":
       default:
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'createtime', "int(10)");
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'lastvisit', "int(10)");
+        $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'activeKey', "VARCHAR(128)");
         $this->execute("UPDATE " . Yii::app()->getModule('user')->tableUsers . " SET createtime = strftime('%s',create_at), lastvisit = strftime('%s',lastvisit_at)");
         $this->execute('ALTER TABLE "' . Yii::app()->getModule('user')->tableUsers . '" RENAME TO "' . __CLASS__ . '_' . Yii::app()->getModule('user')->tableUsers . '"');
         $this->createTable(Yii::app()->getModule('user')->tableUsers, array(

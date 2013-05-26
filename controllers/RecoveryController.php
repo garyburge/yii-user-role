@@ -13,16 +13,16 @@
         $this->redirect(Yii::app()->controller->module->returnUrl);
       } else {
         $email = ((isset($_GET['email'])) ? $_GET['email'] : '');
-        $activkey = ((isset($_GET['activkey'])) ? $_GET['activkey'] : '');
-        if ($email && $activkey) {
+        $activeKey = ((isset($_GET['activeKey'])) ? $_GET['activeKey'] : '');
+        if ($email && $activeKey) {
           $form2 = new UserChangePassword;
           $find = User::model()->notsafe()->findByAttributes(array('email' => $email));
-          if (isset($find) && $find->activkey == $activkey) {
+          if (isset($find) && $find->activeKey == $activeKey) {
             if (isset($_POST['UserChangePassword'])) {
               $form2->attributes = $_POST['UserChangePassword'];
               if ($form2->validate()) {
                 $find->password = Yii::app()->controller->module->encrypting($form2->password);
-                $find->activkey = Yii::app()->controller->module->encrypting(microtime() . $form2->password);
+                $find->activeKey = Yii::app()->controller->module->encrypting(microtime() . $form2->password);
                 if ($find->status == 0) {
                   $find->status = 1;
                 }
@@ -41,7 +41,7 @@
             $form->attributes = $_POST['UserRecoveryForm'];
             if ($form->validate()) {
               $user = User::model()->notsafe()->findbyPk($form->user_id);
-              $activation_url = 'http://' . $_SERVER['HTTP_HOST'] . $this->createUrl(implode(Yii::app()->controller->module->recoveryUrl), array("activkey" => $user->activkey, "email" => $user->email));
+              $activation_url = 'http://' . $_SERVER['HTTP_HOST'] . $this->createUrl(implode(Yii::app()->controller->module->recoveryUrl), array("activeKey" => $user->activeKey, "email" => $user->email));
 
               $subject = UserModule::t("You have requested the password recovery site {site_name}", array(
                   '{site_name}' => Yii::app()->name,
