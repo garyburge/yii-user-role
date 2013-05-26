@@ -16,7 +16,6 @@ $('.search-form form').submit(function(){
     return false;
 });
 ");
-
 ?>
 
 <h1><?php echo UserModule::t("Manage Users"); ?></h1>
@@ -74,12 +73,10 @@ $('.search-form form').submit(function(){
 	),
 )); ?>
 
-<?php $this->widget('bootstrap.widgets.TbButton', array('label'=>UserModule::t('Advanced Search'), 'url'=>'#', 'buttonType'=>'link', 'size'=>'small', 'htmlOptions'=>array('class'=>'search-button'))); ?>
 <?php $this->widget('bootstrap.widgets.TbButton', array('label'=>UserModule::t('Create User'), 'url'=>array('create'), 'type'=>'primary', 'size'=>'small')); ?>
+<?php $this->widget('bootstrap.widgets.TbButton', array('label'=>UserModule::t('Advanced Search'), 'url'=>'#', 'buttonType'=>'link', 'size'=>'small', 'htmlOptions'=>array('class'=>'search-button'))); ?>
 
 <div class="search-form" style="display:none">
-  <hr>
-  <p class="muted"><?php echo UserModule::t("You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done."); ?></p>
   <?php $this->renderPartial('_search',array(
     'model'=>$model,
   )); ?>

@@ -9,127 +9,132 @@ Download or checkout (SVN/Git) from http://yii-user.2mx.org and unpack files in 
 Git clone
 ---------
 
-    clone git git@github.com:mishamx/yii-user.git
+    clone git git@github.com:garyburge/yii-user.git
 
 Configure
 ---------
 
 Change your config main:
 
-    return array(
+  // Define a path alias for the Yii-User module to make integration simple
+  // Be sure to change the path if you did not unzip or clone into the "modules" folder
+
+  Yii::setPathOfAlias('user', dirname(__FILE__) . '/../modules/user');
+
+  // add to "modules" and "components...
+  return array(
+
+    'modules'=>array(
+      #...
+      'user'=>array(
+        // add properties (default values shown)
+        # encrypting method (php hash function)
+        'hash' => 'sha1',
+
+        # send activation email
+        'sendActivationMail' => true,
+
+        # allow access for non-activated users
+        'loginNotActiv' => false,
+
+        # activate user on registration (only sendActivationMail = false)
+        'activeAfterRegister' => false,
+
+        # automatically login from registration
+        'autoLogin' => true,
+
+        # registration path
+        'registrationUrl' => array('/user/registration'),
+
+        # recovery password path
+        'recoveryUrl' => array('/user/recovery'),
+
+        # login form path
+        'loginUrl' => array('/user/login'),
+
+        # page after login
+        'returnUrl' => array('/user/profile'),
+
+        # page after logout
+        'returnLogoutUrl' => array('/user/login'),
+      ),
+      #...
+    ),
+
+    // application components
+    'components'=>array(
+      #...
+      'db'=>array(
         #...
-        // autoloading model and component classes
-        'import'=>array(
-            'application.models.*',
-            'application.components.*',
-            'application.modules.user.models.*',
-            'application.modules.user.components.*',
-        ),
-
+        'tablePrefix' => 'tbl_',
         #...
-        'modules'=>array(
-            #...
-            'user'=>array(
-                # encrypting method (php hash function)
-                'hash' => 'md5',
+      ),
+      #...
+      // add date format specifications (required for user maintenance views)
+      // see http://php.net/manual/en/function.date.php for date() format string definitions
+      'format' => array(
+        'dateFormat' => 'n/j/y',
+        'datetimeFormat' => 'n/j/y g:ia',
+      ),
+      #...
+      'user'=>array(
+        // enable cookie-based authentication
+        'class' => 'WebUser',
+        'allowAutoLogin'=>true,
+        'loginUrl' => '/user/login',
+        'returnUrl' => '/user/profile', // redirect here after successful login
+      ),
+      #...
+    ),
 
-                # send activation email
-                'sendActivationMail' => true,
+  );
 
-                # allow access for non-activated users
-                'loginNotActiv' => false,
+Change your config console (required to execute migrations):
 
-                # activate user on registration (only sendActivationMail = false)
-                'activeAfterRegister' => false,
+  return array(
 
-                # automatically login from registration
-                'autoLogin' => true,
+    'modules'=>array(
+      #...
+      'user'=>array(
+        # encrypting method (php hash function)
+        'hash' => 'sha1',
 
-                # registration path
-                'registrationUrl' => array('/user/registration'),
+        # send activation email
+        'sendActivationMail' => true,
 
-                # recovery password path
-                'recoveryUrl' => array('/user/recovery'),
+        # allow access for non-activated users
+        'loginNotActiv' => false,
 
-                # login form path
-                'loginUrl' => array('/user/login'),
+        # activate user on registration (only sendActivationMail = false)
+        'activeAfterRegister' => false,
 
-                # page after login
-                'returnUrl' => array('/user/profile'),
+        # automatically login from registration
+        'autoLogin' => true,
 
-                # page after logout
-                'returnLogoutUrl' => array('/user/login'),
-            ),
-            #...
-        ),
+        # registration path
+        'registrationUrl' => array('/user/registration'),
 
-        #...
-        // application components
-        'components'=>array(
-        #...
-            'db'=>array(
-            #...
-                'tablePrefix' => 'tbl_',
-            #...
-            ),
-            #...
-            'user'=>array(
-                // enable cookie-based authentication
-                'class' => 'WebUser',
-                'allowAutoLogin'=>true,
-                'loginUrl' => array('/user/login'),
-            ),
-        #...
-        ),
-        #...
-    );
+        # recovery password path
+        'recoveryUrl' => array('/user/recovery'),
 
-Change your config console:
+        # login form path
+        'loginUrl' => array('/user/login'),
 
-    return array(
-        #...
-        'modules'=>array(
-            #...
-            'user'=>array(
-                # encrypting method (php hash function)
-                'hash' => 'md5',
+        # page after login
+        'returnUrl' => array('/user/profile'),
 
-                # send activation email
-                'sendActivationMail' => true,
+        # page after logout
+        'returnLogoutUrl' => array('/user/login'),
+      ),
+      #...
+    ),
 
-                # allow access for non-activated users
-                'loginNotActiv' => false,
-
-                # activate user on registration (only sendActivationMail = false)
-                'activeAfterRegister' => false,
-
-                # automatically login from registration
-                'autoLogin' => true,
-
-                # registration path
-                'registrationUrl' => array('/user/registration'),
-
-                # recovery password path
-                'recoveryUrl' => array('/user/recovery'),
-
-                # login form path
-                'loginUrl' => array('/user/login'),
-
-                # page after login
-                'returnUrl' => array('/user/profile'),
-
-                # page after logout
-                'returnLogoutUrl' => array('/user/login'),
-            ),
-            #...
-        ),
-        #...
-    );
+  );
 
 Install
 -------
 
-Run command:
+Run command (from applicatio/protected):
     yiic migrate --migrationPath=user.migrations
 
 Input admin login, email and password

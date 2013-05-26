@@ -3,15 +3,6 @@
     UserModule::t('Users')=>array('admin'),
     $model->username,
   );
-
-  $this->menu = array(
-    array('label'=>UserModule::t('Create User'), 'url'=>array('create')),
-    array('label'=>UserModule::t('Update User'), 'url'=>array('update', 'id'=>$model->id)),
-    array('label'=>UserModule::t('Delete User'), 'url'=>array('delete', 'id'=>$model->id), 'htmlOptions'=>array('confirm'=>UserModule::t('Are you sure to delete this item?'))),
-    array('label'=>UserModule::t('Manage Users'), 'url'=>array('admin')),
-    array('label'=>UserModule::t('Manage Profile Fields'), 'url'=>array('profileField/admin')),
-    array('label'=>UserModule::t('List Users'), 'url'=>array('/user/user/index')),
-  );
 ?>
 
 <h1><?php echo UserModule::t('View User') . ' "' . $model->username . '"'; ?></h1>
@@ -56,11 +47,5 @@
     'type'=>'condensed striped',
     'data'=>$model,
     'attributes'=>$attributes,
-  ));
-?>
-
-<?php
-  $this->widget('bootstrap.widgets.TbButtonGroup', array(
-    'buttons'=>$this->menu,
   ));
 ?>

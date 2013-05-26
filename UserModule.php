@@ -26,7 +26,7 @@
      * @var string
      * @desc hash method (md5,sha1 or algo hash function http://www.php.net/manual/en/function.hash.php)
      */
-    public $hash = 'md5';
+    public $hash = 'sha1';
 
     /**
      * @var boolean

@@ -11,19 +11,8 @@
 	<?php echo $form->errorSummary(array($model, $profile)); ?>
 
   <?php echo $form->textFieldRow($model, 'username'); ?>
-  <?php //echo $form->labelEx($model,'username'); ?>
-  <?php //echo $form->textField($model,'username',array('size'=>20,'maxlength'=>20)); ?>
-  <?php //echo $form->error($model,'username'); ?>
-
   <?php echo $form->passwordFieldRow($model, 'password'); ?>
-  <?php //echo $form->labelEx($model,'password'); ?>
-  <?php //echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>128)); ?>
-  <?php //echo $form->error($model,'password'); ?>
-
   <?php echo $form->textFieldRow($model, 'email', array('class'=>'span5', 'maxlength'=>128)); ?>
-  <?php //echo $form->labelEx($model,'email'); ?>
-  <?php //echo $form->textField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
-  <?php //echo $form->error($model,'email'); ?>
 
   <?php
 		$profileFields=$profile->getFields();
@@ -45,16 +34,9 @@
   ?>
 
   <?php echo $form->dropDownListRow($model, 'status', User::itemAlias('UserStatus')); ?>
-  <?php //echo $form->labelEx($model,'status'); ?>
-  <?php //echo $form->dropDownList($model,'status',User::itemAlias('UserStatus')); ?>
-  <?php //echo $form->error($model,'status'); ?>
-
   <?php echo $form->dropDownListRow($model, 'superuser', User::itemAlias('AdminStatus')); ?>
-  <?php //echo $form->labelEx($model,'superuser'); ?>
-  <?php //echo $form->dropDownList($model,'superuser',User::itemAlias('AdminStatus')); ?>
-  <?php //echo $form->error($model,'superuser'); ?>
 
-  <div class="control-group buttons">
+  <div class="form-actions">
     <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>UserModule::t("Save"))); ?>
 	</div>
 
