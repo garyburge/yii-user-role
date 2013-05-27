@@ -26,8 +26,8 @@ class AdminController extends Controller
     return array(
       array('allow', // allow admin user to perform 'admin' and 'delete' actions
         'actions'=>array('admin', 'delete', 'create', 'update', 'view'),
-        'users'=>UserModule::getAdmins(),
-        //'roles'=>array('admin'),
+        //'users'=>UserModule::getAdmins(),
+        'roles'=>array('admin'),
       ),
       array('deny', // deny all users
         'users'=>array('*'),
@@ -102,10 +102,8 @@ class AdminController extends Controller
           $profile->save(false);
           // copy selections
           $role->attributes = $_POST['RoleSelectForm'];
-          // set user id
-          $role->user_id = $model->id;
           // create auth assignment for this user and each selected role
-          $role->assignUser();
+          $role->assignUser($model->id);
         }
         // redirect to admin grid
         $this->redirect(array('admin'));
@@ -146,9 +144,6 @@ class AdminController extends Controller
       $profile->attributes = $_POST['Profile'];
       // copy role selection
       $role->attributes = $_POST['RoleSelectForm'];
-      $role->user_id = $model->id;
-      Yii::trace(__METHOD__." (".__LINE__."): _POST['RoleSelectForm']=".print_r($_POST['RoleSelectForm'], true), 'user');
-      Yii::trace(__METHOD__." (".__LINE__."): role->attributes=".print_r($role->attributes, true), 'user');
 
       // validate
       if ($model->validate() && $profile->validate()) {
@@ -164,7 +159,7 @@ class AdminController extends Controller
         // save profile data
         $profile->save();
         // create new assignments
-        $role->assignUser();
+        $role->assignUser($model->id);
         // return to admin grid
         $this->redirect(array('admin'));
       } else {
@@ -174,7 +169,7 @@ class AdminController extends Controller
     }
 
     // get roles assigned to this user
-    $role->getAssigned();
+    $role->getAssigned($model->id);
 
     $this->render('update', array(
       'model'=>$model,
@@ -194,6 +189,7 @@ class AdminController extends Controller
       $model = $this->loadModel();
       $profile = Profile::model()->findByPk($model->id);
       $profile->delete();
+      // TODO Delete AuthAssign records
       $model->delete();
       // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
       if (!isset($_POST['ajax']))

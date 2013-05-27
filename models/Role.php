@@ -33,7 +33,7 @@ class Role extends CActiveRecord
    */
   public function tableName()
   {
-    return 'auth_item';
+    return Yii::app()->getModule('user')->tableAuthItem;
   }
 
   /**
@@ -87,7 +87,7 @@ class Role extends CActiveRecord
       'name'=>'Name',
       'type'=>'Type',
       'description'=>'Description',
-      'bizrule'=>'Bizrule',
+      'bizrule'=>'Rule',
       'data'=>'Data',
     );
   }

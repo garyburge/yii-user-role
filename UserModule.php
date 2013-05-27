@@ -95,9 +95,9 @@
     public $defaultScope = array(
       'with' => array('profile'),
     );
-    public $tableAuthAssignment = '{{auth_assignment}}';
-    public $tableAuthItem = '{{auth_item}}';
-    public $tableAuthItemChild = '{{auth_item_child}}';
+    public $tableAuthAssignment = '{{AuthAssignment}}';
+    public $tableAuthItem = '{{AuthItem}}';
+    public $tableAuthItemChild = '{{AuthItemChild}}';
 
     static private $_user;
     static private $_users = array();
