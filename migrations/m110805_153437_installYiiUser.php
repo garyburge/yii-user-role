@@ -24,6 +24,8 @@ class m110805_153437_installYiiUser extends CDbMigration
     //*
     switch ($this->dbType()) {
       case "mysql":
+
+        // create user table
         $this->createTable(Yii::app()->getModule('user')->tableUsers, array(
           "id"=>"pk",
           "username"=>"varchar(20) NOT NULL DEFAULT ''",
@@ -35,14 +37,19 @@ class m110805_153437_installYiiUser extends CDbMigration
           "superuser"=>"int(1) NOT NULL DEFAULT 0",
           "status"=>"int(1) NOT NULL DEFAULT 0",
           ), $this->MySqlOptions);
+        $this->createIndex('user_id', Yii::app()->getModule('user')->tableUsers, 'id', true);
         $this->createIndex('user_username', Yii::app()->getModule('user')->tableUsers, 'username', true);
         $this->createIndex('user_email', Yii::app()->getModule('user')->tableUsers, 'email', true);
+
+        // create profile table
         $this->createTable(Yii::app()->getModule('user')->tableProfiles, array(
           'user_id'=>'pk',
           'first_name'=>'string',
           'last_name'=>'string',
           ), $this->MySqlOptions);
         $this->addForeignKey('user_profile_id', Yii::app()->getModule('user')->tableProfiles, 'user_id', Yii::app()->getModule('user')->tableUsers, 'id', 'CASCADE', 'RESTRICT');
+
+        // create profile field table
         $this->createTable(Yii::app()->getModule('user')->tableProfileFields, array(
           "id"=>"pk",
           "varname"=>"varchar(50) NOT NULL DEFAULT ''",
@@ -65,6 +72,8 @@ class m110805_153437_installYiiUser extends CDbMigration
 
       case "sqlite":
       default:
+
+        // create user table
         $this->createTable(Yii::app()->getModule('user')->tableUsers, array(
           "id"=>"pk",
           "username"=>"varchar(20) NOT NULL",
@@ -76,13 +85,21 @@ class m110805_153437_installYiiUser extends CDbMigration
           "superuser"=>"int(1) NOT NULL",
           "status"=>"int(1) NOT NULL",
         ));
+        $this->createIndex('user_id', Yii::app()->getModule('user')->tableUsers, 'id', true);
         $this->createIndex('user_username', Yii::app()->getModule('user')->tableUsers, 'username', true);
         $this->createIndex('user_email', Yii::app()->getModule('user')->tableUsers, 'email', true);
+
+        // create profile table
         $this->createTable(Yii::app()->getModule('user')->tableProfiles, array(
           'user_id'=>'pk',
           'first_name'=>'string',
           'last_name'=>'string',
         ));
+        $this->createIndex('user_id', Yii::app()->getModule('user')->tableProfiles, 'id', true);
+        $this->createIndex('user_username', Yii::app()->getModule('user')->tableProfiles, 'first_name', false);
+        $this->createIndex('user_email', Yii::app()->getModule('user')->tableProfiles, 'last_name', false);
+
+        // create profile field table
         $this->createTable(Yii::app()->getModule('user')->tableProfileFields, array(
           "id"=>"pk",
           "varname"=>"varchar(50) NOT NULL",
@@ -101,6 +118,9 @@ class m110805_153437_installYiiUser extends CDbMigration
           "position"=>"int(3) NOT NULL",
           "visible"=>"int(1) NOT NULL",
         ));
+        $this->createIndex('id', Yii::app()->getModule('user')->tableProfileFields, 'id', true);
+        $this->createIndex('title', Yii::app()->getModule('user')->tableProfileFields, 'title', true);
+        $this->createIndex('varname', Yii::app()->getModule('user')->tableProfileFields, 'varname', true);
 
         break;
     }//*/

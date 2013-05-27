@@ -89,12 +89,16 @@
      */
     //public $cacheEnable = false;
 
-    public $tableUsers = '{{users}}';
-    public $tableProfiles = '{{profiles}}';
-    public $tableProfileFields = '{{profiles_fields}}';
+    public $tableUsers = '{{user}}';
+    public $tableProfiles = '{{profile}}';
+    public $tableProfileFields = '{{profile_field}}';
     public $defaultScope = array(
       'with' => array('profile'),
     );
+    public $tableAuthAssignment = '{{auth_assignment}}';
+    public $tableAuthItem = '{{auth_item}}';
+    public $tableAuthItemChild = '{{auth_item_child}}';
+
     static private $_user;
     static private $_users = array();
     static private $_userByName = array();

@@ -36,6 +36,8 @@
   <?php echo $form->dropDownListRow($model, 'status', User::itemAlias('UserStatus')); ?>
   <?php echo $form->dropDownListRow($model, 'superuser', User::itemAlias('AdminStatus')); ?>
 
+  <?php echo $form->dropDownListRow($role, 'selected', CHtml::listData($role->getAllRoles(), 'value', 'text'), array('multiple'=>true, 'size'=>4)); ?>
+
   <div class="form-actions">
     <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>UserModule::t("Save"))); ?>
 	</div>

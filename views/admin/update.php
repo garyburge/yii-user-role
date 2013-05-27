@@ -5,6 +5,6 @@
   );
 ?>
 
-<h1><?php echo UserModule::t('Update User') . " " . $model->id; ?></h1>
+<h1><?php echo UserModule::t('Update User') . ' "' . $model->username; ?>"</h1>
 
-<?php echo $this->renderPartial('_form', array('model' => $model, 'profile' => $profile)); ?>
+<?php echo $this->renderPartial('_form', array('model' => $model, 'profile' => $profile, 'role'=>$role)); ?>
