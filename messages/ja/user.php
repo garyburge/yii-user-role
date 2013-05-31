@@ -52,7 +52,7 @@ return array(
 	'Your Profile' => 'あなたのプロフィール',
 	'Thank you for your registration. Please check your email or login.' => 'ユーザー登録ありがとうございます。メールを確認するか、ログインして下さい。',
 	'Thank you for your registration. Please check your email.' => 'ユーザー登録ありがとうございます。メールを確認して下さい。',
-	'Please check your email. An instructions was sent to your email address.' => '方法をお知らせするメールをあなたのメール・アドレスに送信しました。メールを確認して下さい。',
+	'Please check your inbox. We sent instructions on how to change your password.' => '方法をお知らせするメールをあなたのメール・アドレスに送信しました。メールを確認して下さい。',
 	'Thank you for your registration. Please {{login}}.' =>  'ユーザー登録ありがとうございます。{{login}}してください。',
 	'Thank you for your registration. Contact Admin to activate your account.' =>  'ユーザー登録ありがとうございます。アカウント認証を完了するために、管理者に連絡を取ってください。',
 	'Restore' => 'パスワード再設定',

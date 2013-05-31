@@ -55,7 +55,7 @@ return array(
 	'Your Profile' => 'Ваш профіль',
 	'Thank you for your registration. Please check your email or login.' => 'Реєстрацію завершено. Будь ласка, перевірте свою електронну пошту або увійдіть на сайт',
 	'Thank you for your registration. Please check your email.' => 'Реєстрацію завершено. Будь ласка, перевірте свою електронну пошту',
-	'Please check your email. An instructions was sent to your email address.' => 'На Вашу електронну пошту було надіслано лист з інструкціями',
+	'Please check your inbox. We sent instructions on how to change your password.' => 'На Вашу електронну пошту було надіслано лист з інструкціями',
     'Thank you for your registration. Please {{login}}.' => 'Реєстрацію завершено. {{login}}.',
     'Thank you for your registration. Contact Admin to activate your account.' => 'Реєстрацію завершено. Будь ласка, зв\'яжіться з адміністрацією сайту для активації вашого аккаунта',
 	'Restore' => 'Відновити',

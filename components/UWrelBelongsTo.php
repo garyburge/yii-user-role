@@ -21,9 +21,9 @@ class UWrelBelongsTo {
 			'params'=>$this->params,
 			'paramsLabels' => array(
 				'modelName'=>UserModule::t('Model Name',array(),__CLASS__),
-				'optionName'=>UserModule::t('Lable field name',array(),__CLASS__),
-				'emptyField'=>UserModule::t('Empty item name',array(),__CLASS__),
-				'relationName'=>UserModule::t('Profile model relation name',array(),__CLASS__),
+				'optionName'=>UserModule::t('Label Field Name',array(),__CLASS__),
+				'emptyField'=>UserModule::t('Empty Item Name',array(),__CLASS__),
+				'relationName'=>UserModule::t('Profile Model Relation Name',array(),__CLASS__),
 			),
 		);
 	}

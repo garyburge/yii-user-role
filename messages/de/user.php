@@ -52,7 +52,7 @@ return array(
 	'Your Profile' => 'Ihr Profil',
 	'Thank you for your registration. Please check your email or login.' => 'Vielen Dank für Ihre Anmeldung. Bitte überprüfen Sie Ihre E-Mails oder loggen Sie sich ein.',
 	'Thank you for your registration. Please check your email.' => 'Vielen Dank für Ihre Anmeldung. Bitte überprüfen Sie Ihre E-Mails.',
-	'Please check your email. An instructions was sent to your email address.' => 'Bitte überprüfen Sie Ihre E-Mails. Eine Anleitung wurde an Ihre E-Mail-Adresse geschickt.',
+	'Please check your inbox. We sent instructions on how to change your password.' => 'Bitte überprüfen Sie Ihre E-Mails. Eine Anleitung wurde an Ihre E-Mail-Adresse geschickt.',
 	'Thank you for your registration. Please {{login}}.' =>  'Vielen Dank für Ihre Anmeldung. Bitte Login {{login}}.',
 	'Thank you for your registration. Contact Admin to activate your account.' =>  'Vielen Dank für Ihre Anmeldung. Kontakt Admin Ihr Konto zu aktivieren.',
 	'Restore' => 'Wiederherstellen',

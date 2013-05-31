@@ -2,7 +2,7 @@
 
 return array(
 	'Model Name'=>'Ονομασία Μοντέλου',
-	'Lable field name'=>'Όνομα πεδίου ετικέτας',
-	'Empty item name'=>'Όνομα κενού αντικειμένου',
-	'Profile model relation name'=>'Όνομα  σχέσης του Προφίλ Μοντέλου.',
+	'Label Field Name'=>'Όνομα πεδίου ετικέτας',
+	'Empty Item Name'=>'Όνομα κενού αντικειμένου',
+	'Profile Model Relation Name'=>'Όνομα  σχέσης του Προφίλ Μοντέλου.',
 );

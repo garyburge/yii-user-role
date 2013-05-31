@@ -2,7 +2,7 @@
 
 return array(
 	'Model Name'=>'Model Név',
-	'Lable field name'=>'Elnevezés mező név',
-	'Empty item name'=>'Üres elem név',
-	'Profile model relation name'=>'Profil model reláció név',
+	'Label Field Name'=>'Elnevezés mező név',
+	'Empty Item Name'=>'Üres elem név',
+	'Profile Model Relation Name'=>'Profil model reláció név',
 );

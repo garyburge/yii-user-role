@@ -2,7 +2,7 @@
 
 return array(
 	'Model Name'=>'Nom du modèle',
-	'Lable field name'=>'Nom du champ Lable',
-	'Empty item name'=>'Vider nom de l\'article',
-	'Profile model relation name'=>'Nom du profil modèle des relations',
+	'Label Field Name'=>'Nom du champ Lable',
+	'Empty Item Name'=>'Vider nom de l\'article',
+	'Profile Model Relation Name'=>'Nom du profil modèle des relations',
 );

@@ -52,7 +52,7 @@ return array(
 	'Your Profile' => 'Uw profiel',
 	'Thank you for your registration. Please check your email or login.' => 'Dank u wel voor uw registratie. Controleer uw email of log direct in.',
 	'Thank you for your registration. Please check your email.' => 'Dank u wel voor uw registratie. Controleer alstublieft uw email.',
-	'Please check your email. An instructions was sent to your email address.' => 'Controleer alstublieft uw email. De instructies zijn naar uw emailadres verzonden.',
+	'Please check your inbox. We sent instructions on how to change your password.' => 'Controleer alstublieft uw email. De instructies zijn naar uw emailadres verzonden.',
 	'Thank you for your registration. Please {{login}}.' =>  'Dank u wel voor uw registratie. U kunt nu {{login}}.',
 	'Thank you for your registration. Contact Admin to activate your account.' =>  'Dank u wel voor uw registratie. Neem contact op met de Systeembeheerder om uw account te activeren.',
 	'Restore' => 'Herstellen',

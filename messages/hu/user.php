@@ -52,7 +52,7 @@ return array(
 	'Your Profile' => 'Profilod',
 	'Thank you for your registration. Please check your email or login.' => 'Köszönjük a regisztrációt. Kérlek ellenörizd az e-mail fiokod vagy jelentkezz be.',
 	'Thank you for your registration. Please check your email.' => 'Köszönjük a regisztrációt. Kérlek ellenörizd az e-mailed.',
-	'Please check your email. An instructions was sent to your email address.' => 'Kérlek ellenörizd az e-mail fiokod. Utasításokat elküldtük.',
+	'Please check your inbox. We sent instructions on how to change your password.' => 'Kérlek ellenörizd az e-mail fiokod. Utasításokat elküldtük.',
 	'Thank you for your registration. Please {{login}}.' =>  'Köszönjük a regisztrációt. Kérlek {{login}}.',
 	'Thank you for your registration. Contact Admin to activate your account.' =>  'Köszönjük a regisztrációt. Lépj kapcsolatba az Adminokkal hozzáférésed aktiválásáért.',
 	'Restore' => 'Visszaállítás',

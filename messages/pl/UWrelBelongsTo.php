@@ -2,7 +2,7 @@
 
 return array(
 	'Model Name'=>'Nazwa modelu',
-	'Lable field name'=>'Nazwa etykiety pola',
-	'Empty item name'=>'Nazwa pustego elementu',
-	'Profile model relation name'=>'Nazwa profilu modelu',
+	'Label Field Name'=>'Nazwa etykiety pola',
+	'Empty Item Name'=>'Nazwa pustego elementu',
+	'Profile Model Relation Name'=>'Nazwa profilu modelu',
 );

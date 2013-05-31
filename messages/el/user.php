@@ -54,7 +54,7 @@ return array(
 	'Your Profile' => 'Το προφίλ σας.',
 	'Thank you for your registration. Please check your email or login.' => 'Ευχαριστούμε για την εγγραφή σας.Παρακαλούμε δείτε το ηλεκτρονικό σας ταχυδρομείο ή συνδεθείτε.',
 	'Thank you for your registration. Please check your email.' => 'Ευχαριστούμε για την εγγραφή σας.Παρακαλούμε δείτε το ηλεκτρονικό σας ταχυδρομείο.',
-	'Please check your email. An instructions was sent to your email address.' => 'Παρακαλούμε δείτε το ηλεκτρονικό σας ταχυδρομείο,έχουν σταλεί οδηγίες.',
+	'Please check your inbox. We sent instructions on how to change your password.' => 'Παρακαλούμε δείτε το ηλεκτρονικό σας ταχυδρομείο,έχουν σταλεί οδηγίες.',
 	'Thank you for your registration. Please {{login}}.' =>  'Ευχαριστούμε για την εγγραφή σας.Παρακαλούμε συνδεθείτε {{login}}.',
 	'Thank you for your registration. Contact Admin to activate your account.' =>  'Ευχαριστούμε για την εγγραφή σας.Επικοινωνείστε με τον Διαχειριστή για να ενεργοποιήσει το λογαριασμό σας.',
 	'Restore' => 'Επανάκτηση',

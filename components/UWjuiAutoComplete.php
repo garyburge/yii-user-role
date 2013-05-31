@@ -24,10 +24,10 @@ class UWjuiAutoComplete {
 			'params'=>$this->params,
 			'paramsLabels' => array(
 				'modelName'=>UserModule::t('Model Name',array(),__CLASS__),
-				'optionName'=>UserModule::t('Lable field name',array(),__CLASS__),
-				'emptyFieldLabel'=>UserModule::t('Empty item name',array(),__CLASS__),
+				'optionName'=>UserModule::t('Label Field Name',array(),__CLASS__),
+				'emptyFieldLabel'=>UserModule::t('Empty Item Name',array(),__CLASS__),
 				'emptyFieldValue'=>UserModule::t('Empty item value',array(),__CLASS__),
-				'relationName'=>UserModule::t('Profile model relation name',array(),__CLASS__),
+				'relationName'=>UserModule::t('Profile Model Relation Name',array(),__CLASS__),
 				'minLength'=>UserModule::t('minimal start research length',array(),__CLASS__),
 			),
 		);

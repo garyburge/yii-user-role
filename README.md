@@ -69,13 +69,8 @@ Change your config main:
         'tablePrefix' => 'tbl_',
         #...
       ),
-      #...
-      // add date format specifications (required for user maintenance views)
-      // see http://php.net/manual/en/function.date.php for date() format string definitions
-      'format' => array(
-        'dateFormat' => 'n/j/y',
-        'datetimeFormat' => 'n/j/y g:ia',
-      ),
+      // add user definition, including the WebUser class which extends
+      // Yii's CWebUser class
       #...
       'user'=>array(
         // enable cookie-based authentication
@@ -83,6 +78,19 @@ Change your config main:
         'allowAutoLogin'=>true,
         'loginUrl' => '/user/login',
         'returnUrl' => '/user/profile', // redirect here after successful login
+      ),
+      // add authManager using Yii's CDbAuthManager class
+      #...
+      'authManager'=>array(
+        'class'=>'CDbAuthManager',
+        'connectionID'=>'db',
+      ),
+      #...
+      // add date format specifications (required for user maintenance views)
+      // see http://php.net/manual/en/function.date.php for date() format string definitions
+      'format' => array(
+        'dateFormat' => 'n/j/y',
+        'datetimeFormat' => 'n/j/y g:ia',
       ),
       #...
     ),

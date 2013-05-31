@@ -56,6 +56,7 @@
     public $loginUrl = array("/user/login");
     public $logoutUrl = array("/user/logout");
     public $profileUrl = array("/user/profile");
+    public $profileFieldUrl = array("/user/profilefield");
     public $returnUrl = array("/user/profile");
     public $returnLogoutUrl = array("/user/login");
 

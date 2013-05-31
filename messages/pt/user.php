@@ -54,7 +54,7 @@ return array(
     'Your Profile' => 'Seu perfil',
     'Thank you for your registration. Please check your email or login.' => "Obrigado por cadastrar-se. Dentro de poucos minutos você receberá um email com as instruções para ativação de seu login.",
     'Thank you for your registration. Please check your email.' => "Obrigado por cadastrar-se. Dentro de poucos minutos você receberá um email com as instruções para ativação de seu login.",
-    'Please check your email. An instructions was sent to your email address.' => "Por favor verifique seu email. As instruções já foram enviadas.",
+    'Please check your inbox. We sent instructions on how to change your password.' => "Por favor verifique seu email. As instruções já foram enviadas.",
 	'Thank you for your registration. Please {{login}}.' =>  'Obrigado por cadastrar-se. Por favor, {{login}}.',
 	'Thank you for your registration. Contact Admin to activate your account.' =>  'Obrigado por cadastrar-se. Contate com o Administrador para ativar sua conta.',
     'Restore' => 'Restaurar',

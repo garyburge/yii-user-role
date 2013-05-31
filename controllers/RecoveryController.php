@@ -43,17 +43,17 @@
               $user = User::model()->notsafe()->findbyPk($form->user_id);
               $activation_url = 'http://' . $_SERVER['HTTP_HOST'] . $this->createUrl(implode(Yii::app()->controller->module->recoveryUrl), array("activeKey" => $user->activeKey, "email" => $user->email));
 
-              $subject = UserModule::t("You have requested the password recovery site {site_name}", array(
+              $subject = UserModule::t('{site_name}: Change Password Request', array(
                   '{site_name}' => Yii::app()->name,
               ));
-              $message = UserModule::t("You have requested the password recovery site {site_name}. To receive a new password, go to {activation_url}.", array(
+              $message = UserModule::t('We received a request to change the password on your account at {site_name}. To change your password, just click on this link: {activation_url}', array(
                   '{site_name}' => Yii::app()->name,
                   '{activation_url}' => $activation_url,
               ));
 
               UserModule::sendMail($user->email, $subject, $message);
 
-              Yii::app()->user->setFlash('recoveryMessage', UserModule::t("Please check your email. An instructions was sent to your email address."));
+              Yii::app()->user->setFlash('recoveryMessage', UserModule::t('Please check your inbox. We sent instructions on how to change your password.'));
               $this->refresh();
             }
           }

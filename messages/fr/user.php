@@ -54,7 +54,7 @@ return array(
         'Your Profile' => 'Votre profil',
         'Thank you for your registration. Please check your email or login.' => "Nous vous remercions de votre inscription. S'il vous plaît vérifier votre e-mail ou login.",
         'Thank you for your registration. Please check your email.' => "Nous vous remercions de votre inscription. S'il vous plaît vérifier votre email.",
-        'Please check your email. An instructions was sent to your email address.' => "S'il vous plaît vérifier votre email. Une instruction a été envoyée à votre adresse e-mail.",
+        'Please check your inbox. We sent instructions on how to change your password.' => "S'il vous plaît vérifier votre email. Une instruction a été envoyée à votre adresse e-mail.",
         'Thank you for your registration. Please {{login}}.' =>  'Nous vous remercions de votre inscription. S\'il vous plaît {{login}}.',
         'Thank you for your registration. Contact Admin to activate your account.' =>  'Nous vous remercions de votre inscription. Contact Admin pour activer votre compte.',
         'Restore' => 'Restaurer',

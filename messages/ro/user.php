@@ -52,7 +52,7 @@ return array(
 	'Your Profile' => 'Profilul dumneavoastra',
 	'Thank you for your registration. Please check your email or login.' => 'Va multumim pentru inregistrare. Va rugam sa va verificati adresa de e-mail sau conectati-va.',
 	'Thank you for your registration. Please check your email.' => 'Va multumim pentru inregistrare. Va rugam sa va verificati adresa de e-mail.',
-	'Please check your email. An instructions was sent to your email address.' => 'Va rugam sa va verificati adresa de e-mail. O instructiune a fost trimisa pe adresa dumneavoastra.',
+	'Please check your inbox. We sent instructions on how to change your password.' => 'Va rugam sa va verificati adresa de e-mail. O instructiune a fost trimisa pe adresa dumneavoastra.',
 	'Thank you for your registration. Please {{login}}.' =>  'Va multumim pentru inregistrare. Va rugam sa treceti la {{login}}.',
 	'Thank you for your registration. Contact Admin to activate your account.' =>  'Va multumim pentru inregistrare. Contactati administratorul pentru a va activa contul.',
 	'Restore' => 'Restaurare',

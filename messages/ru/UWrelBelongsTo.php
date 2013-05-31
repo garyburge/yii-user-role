@@ -2,7 +2,7 @@
 
 return array(
 	'Model Name'=>'Имя модели',
-	'Lable field name'=>'Поле для отображения в списке',
-	'Empty item name'=>'Текст пустого поля',
-	'Profile model relation name'=>'Название связи (relation) модели профиля',
+	'Label Field Name'=>'Поле для отображения в списке',
+	'Empty Item Name'=>'Текст пустого поля',
+	'Profile Model Relation Name'=>'Название связи (relation) модели профиля',
 );
