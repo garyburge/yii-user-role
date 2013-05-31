@@ -1,7 +1,6 @@
 <?php
 $this->breadcrumbs = array(
-	UserModule::t('Users')=>array('/user/admin'),
-	UserModule::t('Manage'),
+	UserModule::t('Users')
 );
 
 Yii::app()->clientScript->registerScript('search', "
