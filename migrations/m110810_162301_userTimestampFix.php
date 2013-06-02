@@ -26,7 +26,7 @@ class m110810_162301_userTimestampFix extends CDbMigration
         $this->execute("UPDATE " . Yii::app()->getModule('user')->tableUsers . " SET create_at = FROM_UNIXTIME(createtime), lastvisit_at = IF(lastvisit,FROM_UNIXTIME(lastvisit),'0000-00-00 00:00:00')");
         $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'createtime');
         $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'lastvisit');
-        $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'activKey');
+        $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'activekey');
         break;
       case "sqlite":
       default:
@@ -46,7 +46,7 @@ class m110810_162301_userTimestampFix extends CDbMigration
           "create_at"=>"TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP",
           "lastvisit_at"=>"TIMESTAMP",
         ));
-        $this->execute('INSERT INTO "' . Yii::app()->getModule('user')->tableUsers . '" SELECT "id","username","password","email","activkey","superuser","status","create_at","lastvisit_at" FROM "' . __CLASS__ . '_' . Yii::app()->getModule('user')->tableUsers . '"');
+        $this->execute('INSERT INTO "' . Yii::app()->getModule('user')->tableUsers . '" SELECT "id","username","password","email","activekey","superuser","status","create_at","lastvisit_at" FROM "' . __CLASS__ . '_' . Yii::app()->getModule('user')->tableUsers . '"');
         $this->dropTable(__CLASS__ . '_' . Yii::app()->getModule('user')->tableUsers);
         break;
     }
@@ -59,11 +59,11 @@ class m110810_162301_userTimestampFix extends CDbMigration
       case "mysql":
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'createtime', "int(10) NOT NULL");
         $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'lastvisit', "int(10) NOT NULL");
-        $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'activKey', "VARCHAR(128) NOT NULL");
+        $this->addColumn(Yii::app()->getModule('user')->tableUsers, 'activekey', "VARCHAR(128) NOT NULL");
         $this->execute("UPDATE " . Yii::app()->getModule('user')->tableUsers . " SET createtime = UNIX_TIMESTAMP(create_at), lastvisit = UNIX_TIMESTAMP(lastvisit_at)");
         $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'create_at');
         $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'lastvisit_at');
-        $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'activKey');
+        $this->dropColumn(Yii::app()->getModule('user')->tableUsers, 'activekey');
         break;
       case "sqlite":
       default:
@@ -77,13 +77,13 @@ class m110810_162301_userTimestampFix extends CDbMigration
           "username"=>"varchar(20) NOT NULL",
           "password"=>"varchar(128) NOT NULL",
           "email"=>"varchar(128) NOT NULL",
-          "activkey"=>"varchar(128) NOT NULL",
+          "activekey"=>"varchar(128) NOT NULL",
           "createtime"=>"int(10) NOT NULL",
           "lastvisit"=>"int(10) NOT NULL",
           "superuser"=>"int(1) NOT NULL",
           "status"=>"int(1) NOT NULL",
         ));
-        $this->execute('INSERT INTO "' . Yii::app()->getModule('user')->tableUsers . '" SELECT "id","username","password","email","activkey","createtime","lastvisit","superuser","status" FROM "' . __CLASS__ . '_' . Yii::app()->getModule('user')->tableUsers . '"');
+        $this->execute('INSERT INTO "' . Yii::app()->getModule('user')->tableUsers . '" SELECT "id","username","password","email","activekey","createtime","lastvisit","superuser","status" FROM "' . __CLASS__ . '_' . Yii::app()->getModule('user')->tableUsers . '"');
         $this->execute('DROP TABLE "' . __CLASS__ . '_' . Yii::app()->getModule('user')->tableUsers . '"');
         break;
     }
