@@ -1,5 +1,6 @@
 {
   "name": "garyburge/user",
+  "version": "1.0.0",
   "description": "A fork of the historic 'yii-user' module (v0.3) by mishamx, with significant improvements (views converted to Bootstrap, grammar/spelling corrections, etc.",
   "keywords": ["yii", "module", "auth"],
   "homepage": "https://github.com/garyburge/yii-user",
