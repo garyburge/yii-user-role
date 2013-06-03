@@ -31,7 +31,7 @@ class m110805_153437_installYiiUser extends CDbMigration
           "username"=>"varchar(20) NOT NULL DEFAULT ''",
           "password"=>"varchar(128) NOT NULL DEFAULT ''",
           "email"=>"varchar(128) NOT NULL DEFAULT ''",
-          "activekey"=>"varchar(128) NOT NULL DEFAULT ''",
+          "activKey"=>"varchar(128) NOT NULL DEFAULT ''",
           "createtime"=>"int(10) NOT NULL DEFAULT 0",
           "lastvisit"=>"int(10) NOT NULL DEFAULT 0",
           "superuser"=>"int(1) NOT NULL DEFAULT 0",
@@ -40,6 +40,9 @@ class m110805_153437_installYiiUser extends CDbMigration
         $this->createIndex('user_id', Yii::app()->getModule('user')->tableUsers, 'id', true);
         $this->createIndex('user_username', Yii::app()->getModule('user')->tableUsers, 'username', true);
         $this->createIndex('user_email', Yii::app()->getModule('user')->tableUsers, 'email', true);
+        $this->createIndex('user_times', Yii::app()->getModule('user')->tableUsers, 'createtime,lastvisit', false);
+        $this->createIndex('user_activKey', Yii::app()->getModule('user')->tableUsers, 'activKey', false);
+        $this->createIndex('user_status', Yii::app()->getModule('user')->tableUsers, 'statis.superuser', false);
 
         // create profile table
         $this->createTable(Yii::app()->getModule('user')->tableProfiles, array(
@@ -68,6 +71,11 @@ class m110805_153437_installYiiUser extends CDbMigration
           "position"=>"int(3) NOT NULL DEFAULT 0",
           "visible"=>"int(1) NOT NULL DEFAULT 0",
           ), $this->MySqlOptions);
+
+        $this->createIndex('field_id', Yii::app()->getModule('user')->tableProfileFields, 'id', true);
+        $this->createIndex('field_varname', Yii::app()->getModule('user')->tableProfileFields, 'varname,title', false);
+        $this->createIndex('field_position', Yii::app()->getModule('user')->tableProfileFields, 'position,visible', false);
+
         break;
 
       case "sqlite":
@@ -79,7 +87,7 @@ class m110805_153437_installYiiUser extends CDbMigration
           "username"=>"varchar(20) NOT NULL",
           "password"=>"varchar(128) NOT NULL",
           "email"=>"varchar(128) NOT NULL",
-          "activekey"=>"varchar(128) NOT NULL",
+          "activKey"=>"varchar(128) NOT NULL",
           "createtime"=>"int(10) NOT NULL",
           "lastvisit"=>"int(10) NOT NULL",
           "superuser"=>"int(1) NOT NULL",
@@ -140,7 +148,7 @@ class m110805_153437_installYiiUser extends CDbMigration
       "username"=>$this->_model->username,
       "password"=>Yii::app()->getModule('user')->encrypting($this->_model->password),
       "email"=>"webmaster@example.com",
-      "activekey"=>Yii::app()->getModule('user')->encrypting(microtime()),
+      "activKey"=>Yii::app()->getModule('user')->encrypting(microtime()),
       "createtime"=>time(),
       "lastvisit"=>"0",
       "superuser"=>"1",
