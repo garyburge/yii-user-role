@@ -40,9 +40,9 @@ class m110805_153437_installYiiUser extends CDbMigration
         $this->createIndex('user_id', Yii::app()->getModule('user')->tableUsers, 'id', true);
         $this->createIndex('user_username', Yii::app()->getModule('user')->tableUsers, 'username', true);
         $this->createIndex('user_email', Yii::app()->getModule('user')->tableUsers, 'email', true);
-        $this->createIndex('user_times', Yii::app()->getModule('user')->tableUsers, 'createtime,lastvisit', false);
+        $this->createIndex('user_times', Yii::app()->getModule('user')->tableUsers, 'createtime, lastvisit', false);
         $this->createIndex('user_activKey', Yii::app()->getModule('user')->tableUsers, 'activKey', false);
-        $this->createIndex('user_status', Yii::app()->getModule('user')->tableUsers, 'statis.superuser', false);
+        $this->createIndex('user_status', Yii::app()->getModule('user')->tableUsers, 'status, superuser', false);
 
         // create profile table
         $this->createTable(Yii::app()->getModule('user')->tableProfiles, array(
