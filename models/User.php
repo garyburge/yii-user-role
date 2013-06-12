@@ -50,8 +50,8 @@ class User extends CActiveRecord
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.CConsoleApplication
     return ((get_class(Yii::app()) == 'CConsoleApplication' || (get_class(Yii::app()) != 'CConsoleApplication' && Yii::app()->getModule('user')->isAdmin())) ? array(
-        array('username', 'length', 'max'=>20, 'min'=>3, 'message'=>UserModule::t("Incorrect username (length between 3 and 20 characters).")),
-        array('password', 'length', 'max'=>128, 'min'=>4, 'message'=>UserModule::t("Incorrect password (minimal length 4 symbols).")),
+        array('username', 'length', 'max'=>64, 'min'=>8, 'message'=>UserModule::t("Incorrect username (length between 8 and 64 characters).")),
+        array('password', 'length', 'max'=>128, 'min'=>8, 'message'=>UserModule::t("Incorrect password (minimal length 8 symbols).")),
         array('email', 'email'),
         array('username', 'unique', 'message'=>UserModule::t("This user's name already exists.")),
         array('email', 'unique', 'message'=>UserModule::t("This user's email address already exists.")),
@@ -65,7 +65,7 @@ class User extends CActiveRecord
         array('id, username, password, email, activeKey, create_at, lastvisit_at, superuser, status', 'safe', 'on'=>'search'),
         ) : ((Yii::app()->user->id == $this->id) ? array(
           array('username, email', 'required', 'except'=>'search'),
-          array('username', 'length', 'max'=>20, 'min'=>3, 'message'=>UserModule::t("Incorrect username (length between 3 and 20 characters).")),
+          array('username', 'length', 'max'=>64, 'min'=>8, 'message'=>UserModule::t("Incorrect username (length between 8 and 64 characters).")),
           array('email', 'email'),
           array('username', 'unique', 'message'=>UserModule::t("This user's name already exists.")),
           array('username', 'match', 'pattern'=>'/^[A-Za-z0-9_]+$/u', 'message'=>UserModule::t("Incorrect symbols (A-z0-9).")),
