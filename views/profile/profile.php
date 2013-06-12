@@ -26,7 +26,7 @@
     ),
     array(
       'name'=>'superuser',
-      'value'=>User::itemAlias("AdminStatus", $model->status),
+      'value'=>User::itemAlias("AdminStatus", $model->superuser),
     ),
     'username',
     'email',
