@@ -28,7 +28,7 @@ class m110805_153437_installYiiUser extends CDbMigration
         // create user table
         $this->createTable(Yii::app()->getModule('user')->tableUsers, array(
           "id"=>"pk",
-          "username"=>"varchar(20) NOT NULL DEFAULT ''",
+          "username"=>"varchar(64) NOT NULL DEFAULT ''",
           "password"=>"varchar(128) NOT NULL DEFAULT ''",
           "email"=>"varchar(128) NOT NULL DEFAULT ''",
           "activKey"=>"varchar(128) NOT NULL DEFAULT ''",
