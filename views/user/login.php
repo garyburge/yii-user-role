@@ -25,8 +25,8 @@ $this->breadcrumbs=array(
 
   <?php echo $form->textFieldRow($model, 'username'); ?>
   <?php echo $form->passwordFieldRow($model, 'password'); ?>
-  <p class="help-block"><?php echo CHtml::link(UserModule::t("Register"), Yii::app()->getModule('user')->registrationUrl); ?> | <?php echo CHtml::link(UserModule::t("Lost Password?"), Yii::app()->getModule('user')->recoveryUrl); ?></p>
   <?php echo $form->checkBoxRow($model, 'rememberMe'); ?>
+  <p class="help-block"><?php echo CHtml::link(UserModule::t("Register"), Yii::app()->getModule('user')->registrationUrl); ?> | <?php echo CHtml::link(UserModule::t("Lost Password?"), Yii::app()->getModule('user')->recoveryUrl); ?></p>
 
   <div class="form-actions">
     <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>UserModule::t("Login"))); ?>
