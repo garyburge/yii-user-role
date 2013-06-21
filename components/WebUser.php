@@ -34,8 +34,8 @@
       $userAttributes = CMap::mergeArray(array(
           'email' => $user->email,
           'username' => $user->username,
-          'create_at' => $user->create_at,
-          'lastvisit_at' => $user->lastvisit_at,
+          'created' => $user->created,
+          'lastvisit' => $user->lastvisit,
           ), $user->profile->getAttributes());
       foreach ($userAttributes as $attrName => $attrValue) {
         $this->setState($attrName, $attrValue);

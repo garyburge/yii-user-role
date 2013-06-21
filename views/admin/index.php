@@ -44,13 +44,13 @@ $('.search-form form').submit(function(){
       'htmlOptions'=>array('style'=>'width:25%;')
 		),
     array(
-      'name'=>'create_at',
-      'value'=>'Yii::app()->format->date($data->create_at)',
+      'name'=>'created',
+      'value'=>'Yii::app()->format->date($data->created)',
       'htmlOptions'=>array('style'=>'width:10%;')
     ),
     array(
-      'name'=>'lastvisit_at',
-      'value'=>'Yii::app()->format->datetime($data->lastvisit_at)',
+      'name'=>'lastvisit',
+      'value'=>'Yii::app()->format->datetime($data->lastvisit)',
       'htmlOptions'=>array('style'=>'width:15%;')
     ),
 		array(

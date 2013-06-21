@@ -85,7 +85,7 @@ class AdminController extends Controller
       // copy form data to model
       $model->attributes = $_POST['User'];
       // set active key
-      $model->activeKey = Yii::app()->controller->module->encrypting(microtime() . $model->password);
+      $model->active_key = Yii::app()->controller->module->encrypting(microtime() . $model->password);
       // copy profile data
       $profile->attributes = $_POST['Profile'];
       // set user id to zero for new user
@@ -152,7 +152,7 @@ class AdminController extends Controller
         if ($old_password->password != $model->password) {
           // encrypt new password and key
           $model->password = Yii::app()->controller->module->encrypting($model->password);
-          $model->activeKey = Yii::app()->controller->module->encrypting(microtime() . $model->password);
+          $model->active_key = Yii::app()->controller->module->encrypting(microtime() . $model->password);
         }
         // save user data
         $model->save();

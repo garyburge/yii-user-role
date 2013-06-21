@@ -41,7 +41,7 @@ class RegistrationController extends Controller
         $profile->attributes = ((isset($_POST['Profile']) ? $_POST['Profile'] : array()));
         if ($model->validate() && $profile->validate()) {
           $soucePassword = $model->password;
-          $model->activeKey = UserModule::encrypting(microtime() . $model->password);
+          $model->active_key = UserModule::encrypting(microtime() . $model->password);
           $model->password = UserModule::encrypting($model->password);
           $model->verifyPassword = UserModule::encrypting($model->verifyPassword);
           $model->superuser = 0;
@@ -51,7 +51,7 @@ class RegistrationController extends Controller
             $profile->user_id = $model->id;
             $profile->save();
             if (Yii::app()->controller->module->sendActivationMail) {
-              $activation_url = $this->createAbsoluteUrl('/user/activation/activation', array("activeKey"=>$model->activeKey, "email"=>$model->email));
+              $activation_url = $this->createAbsoluteUrl('/user/activation/activation', array("active_key"=>$model->active_key, "email"=>$model->email));
               UserModule::sendMail($model->email, UserModule::t("You registered from {site_name}", array('{site_name}'=>Yii::app()->name)), UserModule::t("Please activate you account go to {activation_url}", array('{activation_url}'=>$activation_url)));
             }
 

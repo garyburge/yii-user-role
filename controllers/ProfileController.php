@@ -74,7 +74,7 @@
           if ($model->validate()) {
             $new_password = User::model()->notsafe()->findbyPk(Yii::app()->user->id);
             $new_password->password = UserModule::encrypting($model->password);
-            $new_password->activeKey = UserModule::encrypting(microtime() . $model->password);
+            $new_password->active_key = UserModule::encrypting(microtime() . $model->password);
             $new_password->save();
             Yii::app()->user->setFlash('profileMessage', UserModule::t('Your new password was saved'));
             $this->redirect(array("profile"));

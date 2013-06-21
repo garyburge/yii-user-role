@@ -13,16 +13,16 @@ class User extends CActiveRecord
   /**
    * The followings are the available columns in table 'users':
    * @var integer $id
+   * @var integer $superuser
+   * @var integer $status
    * @var string $username
    * @var string $password
    * @var string $email
-   * @var string $activeKey
+   * @var string $active_key
    * @var integer $createtime
    * @var integer $lastvisit
-   * @var integer $superuser
-   * @var integer $status
-   * @var timestamp $create_at
-   * @var timestamp $lastvisit_at
+   * @var timestamp $created
+   * @var timestamp $lastvisit
    */
 
   /**
@@ -58,11 +58,11 @@ class User extends CActiveRecord
         array('username', 'match', 'pattern'=>'/^[A-Za-z0-9_]+$/u', 'message'=>UserModule::t("Incorrect symbols (A-z0-9).")),
         array('status', 'in', 'range'=>array(self::STATUS_NOACTIVE, self::STATUS_ACTIVE, self::STATUS_BANNED)),
         array('superuser', 'in', 'range'=>array(0, 1)),
-        array('create_at', 'default', 'value'=>date('Y-m-d H:i:s'), 'setOnEmpty'=>true, 'on'=>'insert'),
-        array('lastvisit_at', 'default', 'value'=>'0000-00-00 00:00:00', 'setOnEmpty'=>true, 'on'=>'insert'),
+        array('created', 'default', 'value'=>date('Y-m-d H:i:s'), 'setOnEmpty'=>true, 'on'=>'insert'),
+        array('lastvisit', 'default', 'value'=>'0000-00-00 00:00:00', 'setOnEmpty'=>true, 'on'=>'insert'),
         array('username, email, superuser, status', 'required', 'except'=>'search'),
         array('superuser, status', 'numerical', 'integerOnly'=>true),
-        array('id, username, password, email, activeKey, create_at, lastvisit_at, superuser, status', 'safe', 'on'=>'search'),
+        array('id, username, password, email, active_key, created, lastvisit, superuser, status', 'safe', 'on'=>'search'),
         ) : ((Yii::app()->user->id == $this->id) ? array(
           array('username, email', 'required', 'except'=>'search'),
           array('username', 'length', 'max'=>64, 'min'=>8, 'message'=>UserModule::t("Incorrect username (length between 8 and 64 characters).")),
@@ -103,9 +103,9 @@ class User extends CActiveRecord
       'verifyPassword'=>UserModule::t('Retype Password'),
       'email'=>UserModule::t('Email'),
       'verifyCode'=>UserModule::t('Verification Code'),
-      'activeKey'=>UserModule::t('Activation Key'),
-      'create_at'=>UserModule::t('Created'),
-      'lastvisit_at'=>UserModule::t('Last Visit'),
+      'active_key'=>UserModule::t('Activation Key'),
+      'created'=>UserModule::t('Created'),
+      'lastvisit'=>UserModule::t('Last Visit'),
       'superuser'=>UserModule::t('Superuser'),
       'status'=>UserModule::t('Status'),
     );
@@ -127,7 +127,7 @@ class User extends CActiveRecord
         'condition'=>'superuser=1',
       ),
       'notsafe'=>array(
-        'select'=>'id, username, password, email, create_at, lastvisit_at, superuser, status, activeKey',
+        'select'=>'id, username, password, email, created, lastvisit, superuser, status, active_key',
       ),
     );
   }
@@ -136,7 +136,7 @@ class User extends CActiveRecord
   {
     return CMap::mergeArray(Yii::app()->getModule('user')->defaultScope, array(
         'alias'=>'user',
-        'select'=>'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status',
+        'select'=>'user.id, user.username, user.email, user.created, user.lastvisit, user.superuser, user.status',
     ));
   }
 
@@ -174,9 +174,9 @@ class User extends CActiveRecord
     $criteria->compare('username', $this->username, true);
     $criteria->compare('password', $this->password);
     $criteria->compare('email', $this->email, true);
-    $criteria->compare('activeKey', $this->activeKey);
-    $criteria->compare('create_at', $this->create_at);
-    $criteria->compare('lastvisit_at', $this->lastvisit_at);
+    $criteria->compare('active_key', $this->active_key);
+    $criteria->compare('created', $this->created);
+    $criteria->compare('lastvisit', $this->lastvisit);
     $criteria->compare('superuser', $this->superuser);
     $criteria->compare('status', $this->status);
 
@@ -190,22 +190,22 @@ class User extends CActiveRecord
 
   public function getCreatetime()
   {
-    return strtotime($this->create_at);
+    return strtotime($this->created);
   }
 
   public function setCreatetime($value)
   {
-    $this->create_at = date('Y-m-d H:i:s', $value);
+    $this->created = date('Y-m-d H:i:s', $value);
   }
 
   public function getLastvisit()
   {
-    return strtotime($this->lastvisit_at);
+    return strtotime($this->lastvisit);
   }
 
   public function setLastvisit($value)
   {
-    $this->lastvisit_at = date('Y-m-d H:i:s', $value);
+    $this->lastvisit = date('Y-m-d H:i:s', $value);
   }
 
 }

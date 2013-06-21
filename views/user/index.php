@@ -31,11 +31,11 @@
       ),
       (UserModule::isAdmin() ? array('name'=>'email', 'type'=>'raw', 'value'=>'CHtml::link(UHtml::markSearch($data, "email"), "mailto:".$data->email)') : ''),
       array(
-        'name'=>'create_at',
+        'name'=>'created',
         'type'=>'date',
       ),
       array(
-        'name'=>'lastvisit_at',
+        'name'=>'lastvisit',
         'type'=>'datetime',
       ),
     ),
