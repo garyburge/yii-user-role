@@ -5,7 +5,7 @@
   "homepage": "https://github.com/garyburge/yii-user",
   "type": "yii-extension",
   "license": "BSD-3-Clause",
-  "version": "dev-roles",
+  "version": "dev-master",
   "authors": [
     {
       "name": "Mikhail Mangushev",
