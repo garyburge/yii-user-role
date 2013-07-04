@@ -187,13 +187,36 @@ class AdminController extends Controller
         if (Yii::app()->request->isPostRequest) {
             // we only allow deletion via POST request
             $model = $this->loadModel();
-            $profile = Profile::model()->findByPk($model->id);
-            $profile->delete();
-            // TODO Delete AuthAssign records
-            $model->delete();
-            // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-            if (!isset($_POST['ajax']))
-                $this->redirect(array('/user/admin'));
+
+            // begin a transaction
+            $trans = Yii::app()->db->beginTransaction();
+
+            try {
+                // first, delete the auth assignments for this user
+                $sql = "DELETE FROM AuthAssignment ".
+                       "WHERE userid = :id ";
+                Yii::app()->db->createCommand($sql)->execute(array(':id'=>$model->id));
+
+                // next, delete profile row for this user
+                $sql = "DELETE FROM profile ".
+                       "WHERE user_id = ':id' ";
+                Yii::app()->db->createCommand($sql)->execute(array(':id'=>$model->id));
+
+                // lastly, delete the user record
+                $model->delete();
+
+                // commit transaction
+                $trans->commit();
+
+                // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+                if (!isset($_POST['ajax'])) {
+                    $this->redirect(array('/user/admin'));
+                }
+
+            } catch (CException $e) {
+                // roll back transaction
+                $trans->rollback();
+            }
         } else {
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
         }

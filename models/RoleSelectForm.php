@@ -88,7 +88,7 @@ class RoleSelectForm extends CFormModel
 
       // create new auth assignment for selected roles
       foreach($this->selected as $role) {
-        Yii::app()->getAuthManager()->assign($role, $userid);
+        Yii::app()->getAuthManager()->assign($role, $userid, null, null);
       }
 
       // commit transaction
